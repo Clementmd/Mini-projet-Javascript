@@ -3,20 +3,20 @@
 
 /* --- Variables de couleurs Pokédex --- */
 :root {
-    --pokedex-red: #dc0a2d;      /* Rouge vif Pokédex */
-    --pokedex-dark-red: #8b0000; /* Pour les ombres/bordures */
-    --pokedex-blue: #28aafe;     /* Bleu des boutons/écrans */
-    --pokedex-yellow: #ffcb05;   /* Jaune éclair */
-    --screen-bg: #dedede;        /* Fond gris clair de l'écran principal */
+    --pokedex-red: #dc0a2d;      
+    --pokedex-dark-red: #8b0000; 
+    --pokedex-blue: #28aafe;     
+    --pokedex-yellow: #ffcb05;   
+    --screen-bg: #dedede;        
     --text-dark: #2c3e50;
     --text-white: #ffffff;
 }
 
 body {
-    background-color: #333; /* Fond externe sombre pour faire ressortir le Pokédex */
+    background-color: #333; 
     color: var(--text-dark);
-    font-family: 'VT323', monospace; /* Police style "pixel art" */
-    font-size: 1.4rem; /* Plus grand pour compenser la police pixel */
+    font-family: 'VT323', monospace; 
+    font-size: 1.4rem; 
     margin: 0;
     padding: 20px;
 }
@@ -63,7 +63,7 @@ hr {
     background-color: var(--screen-bg);
     border: 5px solid #555;
     border-radius: 10px;
-    overflow: hidden; /* Pour que le background de l'écran ne dépasse pas */
+    overflow: hidden; 
 }
 
 /* --- Colonne GAUCHE : L'écran principal --- */
@@ -75,7 +75,7 @@ hr {
 /* Barre de recherche style "Console" */
 .search-bar {
     display: flex;
-    background-color: #555; /* Fond sombre autour de l'input */
+    background-color: #555; 
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -132,7 +132,6 @@ hr {
     height: auto;
     display: block;
     margin: 10px auto;
-    /* Petit effet d'ombre sous le Pokémon */
     filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
 }
 
@@ -146,8 +145,8 @@ hr {
 /* --- Colonne DROITE : La liste des données --- */
 #favorites-section {
     flex: 1;
-    background-color: #ccc; /* Légèrement plus sombre que l'écran principal */
-    border-left: 5px dashed var(--pokedex-dark-red); /* La séparation pointillée */
+    background-color: #ccc; 
+    border-left: 5px dashed var(--pokedex-dark-red); 
     padding: 20px;
 }
 
