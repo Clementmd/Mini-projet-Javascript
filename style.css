@@ -1,1 +1,208 @@
+/* --- Import de la police Pokémon-like (Open Source) --- */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+/* --- Variables de couleurs Pokédex --- */
+:root {
+    --pokedex-red: #dc0a2d;      /* Rouge vif Pokédex */
+    --pokedex-dark-red: #8b0000; /* Pour les ombres/bordures */
+    --pokedex-blue: #28aafe;     /* Bleu des boutons/écrans */
+    --pokedex-yellow: #ffcb05;   /* Jaune éclair */
+    --screen-bg: #dedede;        /* Fond gris clair de l'écran principal */
+    --text-dark: #2c3e50;
+    --text-white: #ffffff;
+}
+
+body {
+    background-color: #333; /* Fond externe sombre pour faire ressortir le Pokédex */
+    color: var(--text-dark);
+    font-family: 'VT323', monospace; /* Police style "pixel art" */
+    font-size: 1.4rem; /* Plus grand pour compenser la police pixel */
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- Le Conteneur devient le boîtier du Pokédex --- */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--pokedex-red);
+    border: 10px solid var(--pokedex-dark-red);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    color: var(--pokedex-yellow);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 var(--pokedex-dark-red);
+    margin: 0;
+    font-size: 3rem;
+}
+
+header p {
+    color: var(--text-white);
+    margin: 5px 0;
+}
+
+hr {
+    border: 0;
+    border-top: 4px solid var(--pokedex-dark-red);
+    margin: 15px 0;
+}
+
+/* --- L'écran intérieur (Flexbox) --- */
+.content {
+    display: flex;
+    gap: 0;
+    background-color: var(--screen-bg);
+    border: 5px solid #555;
+    border-radius: 10px;
+    overflow: hidden; /* Pour que le background de l'écran ne dépasse pas */
+}
+
+/* --- Colonne GAUCHE : L'écran principal --- */
+#result-section {
+    flex: 2;
+    padding: 20px;
+}
+
+/* Barre de recherche style "Console" */
+.search-bar {
+    display: flex;
+    background-color: #555; /* Fond sombre autour de l'input */
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#pokemonInput {
+    flex: 1;
+    border: 3px solid #333;
+    padding: 8px;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    outline: none;
+    background-color: #fff;
+}
+
+#searchBtn, #favBtn {
+    background-color: var(--pokedex-blue);
+    border: 3px solid var(--pokedex-dark-red);
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0 15px;
+    margin-left: 5px;
+    border-radius: 5px;
+    transition: transform 0.1s;
+}
+
+#searchBtn:active, #favBtn:active {
+    transform: scale(0.95);
+}
+
+#searchBtn:disabled, #favBtn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background-color: #aaa;
+}
+
+/* Affichage du Pokémon */
+.pokemon-card {
+    text-align: center;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.pokemon-card h2 {
+    color: var(--pokedex-dark-red);
+    border-bottom: 3px solid var(--pokedex-dark-red);
+    padding-bottom: 5px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.pokemon-card img {
+    width: 180px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    /* Petit effet d'ombre sous le Pokémon */
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+}
+
+.pokemon-stats {
+    background-color: rgba(255,255,255,0.7);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #aaa;
+}
+
+/* --- Colonne DROITE : La liste des données --- */
+#favorites-section {
+    flex: 1;
+    background-color: #ccc; /* Légèrement plus sombre que l'écran principal */
+    border-left: 5px dashed var(--pokedex-dark-red); /* La séparation pointillée */
+    padding: 20px;
+}
+
+#favorites-section h3 {
+    margin-top: 0;
+    color: var(--pokedex-dark-red);
+}
+
+#noFav {
+    font-style: italic;
+    color: #666;
+}
+
+#favList {
+    list-style: none;
+    padding: 0;
+}
+
+#favList li {
+    background-color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #aaa;
+}
+
+#favList li:hover {
+    background-color: var(--pokedex-yellow);
+    border-color: var(--pokedex-dark-red);
+}
+
+.delete-fav {
+    font-size: 1.4rem;
+    color: var(--pokedex-red);
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* --- Utilitaires --- */
+.hidden {
+    display: none;
+}
+
+#bloc-gif-attente {
+    text-align: center;
+    font-weight: bold;
+    color: var(--pokedex-blue);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

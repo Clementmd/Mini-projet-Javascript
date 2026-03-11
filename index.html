@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Poké-Recherche</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>RECHERCHE DE POKÉMONS</h1>
+        <p>Saisissez le nom d'un Pokémon (en anglais) pour voir ses stats et l'ajouter à vos favoris.</p>
+    </header>
 
+    <main class="container">
+        <div class="search-bar">
+            <input type="text" id="pokemonInput" placeholder="Ex: pikachu, charizard...">
+            <button id="searchBtn" disabled>🔎</button>
+            <button id="favBtn" disabled>☆</button>
+        </div>
+
+        <div class="content">
+            <section id="result-section">
+                <div id="bloc-gif-attente" class="hidden">Chargement...</div>
+                <div id="pokemonCard">
+                    </div>
+            </section>
+
+            <aside id="favorites-section">
+                <h3>Recherches favorites</h3>
+                <ul id="favList">
+                    </ul>
+                <p id="noFav"> (Ø Aucune recherche enregistrée) </p>
+            </aside>
+        </div>
+    </main>
+
+    <script type="module" src="js/Controleur/main.js"></script>
+</body>
+</html>
